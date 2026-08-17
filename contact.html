@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact et devis gratuit — ABV Habitat, Haguenau</title>
+<meta name="description" content="Demandez un devis gratuit pour la pose de vos fenêtres, portes ou volets. Réponse sous 48 h. ABV Habitat, Haguenau (67).">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="ABV Habitat">
+<meta property="og:title" content="Contact et devis gratuit — ABV Habitat">
+<meta property="og:description" content="Décrivez votre projet de menuiseries, nous vous rappelons sous 48 h.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/init.js"></script>
+</head>
+<body>
+
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+<header class="entete">
+  <div class="conteneur entete__barre">
+
+    <a class="entete__marque" href="index.html">
+      <span class="entete__nom">ABV Habitat</span>
+      <span class="entete__baseline">Menuiserie &amp; fermetures</span>
+    </a>
+
+    <div class="entete__actions">
+      <a class="entete__tel" href="tel:+3338800000">03 88 XX XX XX</a>
+      <a class="bouton bouton--principal entete__devis" href="#devis">Demander un devis</a>
+      <button class="entete__bascule" type="button" aria-expanded="false" aria-controls="navigation-principale">
+        <span class="entete__bascule-barres" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="nav" id="navigation-principale" aria-label="Navigation principale">
+      <ul class="nav__liste">
+        <li><a class="nav__lien" href="index.html#prestations">Prestations</a></li>
+        <li><a class="nav__lien" href="realisations.html">Réalisations</a></li>
+        <li><a class="nav__lien" href="index.html#zone-intervention">Zone d'intervention</a></li>
+        <li><a class="nav__lien" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+      <div class="nav__complement">
+        <a class="nav__tel" href="tel:+3338800000">03 88 XX XX XX</a>
+        <a class="bouton bouton--principal bouton--large" href="#devis">Demander un devis</a>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<main id="contenu">
+
+  <section class="page-titre">
+    <div class="conteneur">
+      <h1>Contact et demande de devis</h1>
+      <p>
+        Décrivez votre projet en quelques clics. Nous vous rappelons sous 48 h
+        pour convenir d'une visite et d'un métré, sans engagement.
+      </p>
+    </div>
+  </section>
+
+  <nav class="fil-ariane" aria-label="Fil d'Ariane">
+    <div class="conteneur">
+      <ol>
+        <li><a href="index.html">Accueil</a></li>
+        <li>Contact</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="conteneur">
+      <div class="contact__grille">
+
+        <!-- ==========================================================
+             Colonne gauche : coordonnées et carte
+             ========================================================== -->
+        <div>
+          <h2>Nous joindre directement</h2>
+
+          <div class="coordonnees__bloc">
+            <span class="surtitre">Téléphone</span>
+            <a class="coordonnees__valeur" href="tel:+3338800000">03 88 XX XX XX</a>
+          </div>
+
+          <div class="coordonnees__bloc">
+            <span class="surtitre">E-mail</span>
+            <a class="coordonnees__valeur" href="mailto:contact@abvhabitat.fr">contact@abvhabitat.fr</a>
+          </div>
+
+          <div class="coordonnees__bloc">
+            <span class="surtitre">Adresse</span>
+            <p class="sans-marge">
+              [Adresse à compléter]<br>
+              67500 Haguenau
+            </p>
+          </div>
+
+          <div class="coordonnees__bloc">
+            <span class="surtitre">Horaires</span>
+            <ul class="coordonnees__liste">
+              <li><span>Lundi – vendredi</span><span>8 h – 12 h / 13 h 30 – 18 h</span></li>
+              <li><span>Samedi</span><span>Sur rendez-vous</span></li>
+              <li><span>Dimanche</span><span>Fermé</span></li>
+            </ul>
+          </div>
+
+          <div class="coordonnees__bloc">
+            <span class="surtitre">Zone d'intervention</span>
+            <figure class="sans-marge">
+              <div class="emplacement emplacement--4-3"
+                   data-src="assets/img/carte-zone.png"
+                   data-alt="Carte de la zone d'intervention d'ABV Habitat autour de Haguenau">
+                <span class="emplacement__libelle">carte-zone.png — 800 × 600 px, format 4/3</span>
+              </div>
+              <figcaption class="texte-secondaire espace-haut">
+                Haguenau et un rayon d'environ 40 km, dans le nord du Bas-Rhin.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- ==========================================================
+             Colonne droite : formulaire de devis
+             ========================================================== -->
+        <div id="devis">
+          <h2>Demander un devis</h2>
+          <p class="texte-secondaire">
+            Les champs marqués d'une <span class="obligatoire">*</span> sont obligatoires.
+            Plus vous êtes précis, plus le devis sera juste dès le premier passage.
+          </p>
+
+          <div class="formulaire__resume-erreurs" id="resume-erreurs"></div>
+
+          <form class="formulaire" method="post" action="" enctype="multipart/form-data" novalidate>
+
+            <!-- Particulier ou professionnel -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">Vous êtes</legend>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="profil" id="profil-particulier" value="particulier" checked>
+                  <label class="puce__label" for="profil-particulier">Particulier</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="profil" id="profil-professionnel" value="professionnel">
+                  <label class="puce__label" for="profil-professionnel">Professionnel</label>
+                </span>
+              </div>
+            </fieldset>
+
+            <!-- Identité -->
+            <div class="champ">
+              <label class="champ__label" for="nom">
+                Nom et prénom <span class="obligatoire" aria-hidden="true">*</span>
+              </label>
+              <input class="champ__saisie" type="text" id="nom" name="nom"
+                     autocomplete="name" required aria-describedby="erreur-nom">
+              <span class="champ__erreur" id="erreur-nom" role="alert"></span>
+            </div>
+
+            <div class="champ">
+              <label class="champ__label" for="telephone">
+                Téléphone <span class="obligatoire" aria-hidden="true">*</span>
+              </label>
+              <input class="champ__saisie" type="tel" id="telephone" name="telephone"
+                     autocomplete="tel" inputmode="tel" required aria-describedby="erreur-telephone">
+              <span class="champ__erreur" id="erreur-telephone" role="alert"></span>
+            </div>
+
+            <div class="champ">
+              <label class="champ__label" for="email">
+                E-mail <span class="obligatoire" aria-hidden="true">*</span>
+              </label>
+              <input class="champ__saisie" type="email" id="email" name="email"
+                     autocomplete="email" required aria-describedby="erreur-email">
+              <span class="champ__erreur" id="erreur-email" role="alert"></span>
+            </div>
+
+            <div class="champ-duo">
+              <div class="champ">
+                <label class="champ__label" for="commune">
+                  Commune du chantier <span class="obligatoire" aria-hidden="true">*</span>
+                </label>
+                <input class="champ__saisie" type="text" id="commune" name="commune"
+                       autocomplete="address-level2" required aria-describedby="erreur-commune">
+                <span class="champ__erreur" id="erreur-commune" role="alert"></span>
+              </div>
+
+              <div class="champ">
+                <label class="champ__label" for="code_postal">
+                  Code postal <span class="obligatoire" aria-hidden="true">*</span>
+                </label>
+                <input class="champ__saisie" type="text" id="code_postal" name="code_postal"
+                       autocomplete="postal-code" inputmode="numeric" maxlength="5"
+                       required aria-describedby="erreur-code_postal">
+                <span class="champ__erreur" id="erreur-code_postal" role="alert"></span>
+              </div>
+            </div>
+
+            <!-- Projet -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">
+                Votre projet <span class="obligatoire" aria-hidden="true">*</span>
+              </legend>
+              <span class="champ__aide" id="aide-projet">Plusieurs choix possibles.</span>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-fenetres" value="fenetres" aria-describedby="erreur-projet">
+                  <label class="puce__label" for="projet-fenetres">Fenêtres</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-porte-entree" value="porte-entree">
+                  <label class="puce__label" for="projet-porte-entree">Porte d'entrée</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-volets" value="volets">
+                  <label class="puce__label" for="projet-volets">Volets</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-porte-garage" value="porte-garage">
+                  <label class="puce__label" for="projet-porte-garage">Porte de garage</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-baie" value="baie-coulissante">
+                  <label class="puce__label" for="projet-baie">Baie coulissante</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="checkbox" name="projet[]" id="projet-autre" value="autre">
+                  <label class="puce__label" for="projet-autre">Autre</label>
+                </span>
+              </div>
+              <span class="champ__erreur" id="erreur-projet" role="alert"></span>
+            </fieldset>
+
+            <!-- Nombre d'ouvertures -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">Nombre d'ouvertures concernées</legend>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="nombre_ouvertures" id="ouvertures-1-2" value="1-2">
+                  <label class="puce__label" for="ouvertures-1-2">1 à 2</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="nombre_ouvertures" id="ouvertures-3-5" value="3-5">
+                  <label class="puce__label" for="ouvertures-3-5">3 à 5</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="nombre_ouvertures" id="ouvertures-6-10" value="6-10">
+                  <label class="puce__label" for="ouvertures-6-10">6 à 10</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="nombre_ouvertures" id="ouvertures-plus-10" value="plus-de-10">
+                  <label class="puce__label" for="ouvertures-plus-10">Plus de 10</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="nombre_ouvertures" id="ouvertures-inconnu" value="je-ne-sais-pas">
+                  <label class="puce__label" for="ouvertures-inconnu">Je ne sais pas</label>
+                </span>
+              </div>
+            </fieldset>
+
+            <!-- Matériau -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">Matériau souhaité</legend>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="materiau" id="materiau-pvc" value="pvc">
+                  <label class="puce__label" for="materiau-pvc">PVC</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="materiau" id="materiau-alu" value="aluminium">
+                  <label class="puce__label" for="materiau-alu">Aluminium</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="materiau" id="materiau-bois" value="bois">
+                  <label class="puce__label" for="materiau-bois">Bois</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="materiau" id="materiau-bois-alu" value="bois-alu">
+                  <label class="puce__label" for="materiau-bois-alu">Bois-alu</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="materiau" id="materiau-conseil" value="a-me-conseiller">
+                  <label class="puce__label" for="materiau-conseil">À me conseiller</label>
+                </span>
+              </div>
+            </fieldset>
+
+            <!-- Type de travaux -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">Type de travaux</legend>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="type_travaux" id="travaux-renovation" value="renovation">
+                  <label class="puce__label" for="travaux-renovation">Rénovation</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="type_travaux" id="travaux-neuf" value="construction-neuve">
+                  <label class="puce__label" for="travaux-neuf">Construction neuve</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="type_travaux" id="travaux-inconnu" value="je-ne-sais-pas">
+                  <label class="puce__label" for="travaux-inconnu">Je ne sais pas</label>
+                </span>
+              </div>
+            </fieldset>
+
+            <!-- Échéance -->
+            <fieldset class="groupe">
+              <legend class="groupe__legende">Échéance</legend>
+              <div class="groupe__options">
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="echeance" id="echeance-asap" value="des-que-possible">
+                  <label class="puce__label" for="echeance-asap">Dès que possible</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="echeance" id="echeance-1-3" value="1-3-mois">
+                  <label class="puce__label" for="echeance-1-3">1 à 3 mois</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="echeance" id="echeance-3-6" value="3-6-mois">
+                  <label class="puce__label" for="echeance-3-6">3 à 6 mois</label>
+                </span>
+                <span class="puce">
+                  <input class="puce__input" type="radio" name="echeance" id="echeance-renseignement" value="je-me-renseigne">
+                  <label class="puce__label" for="echeance-renseignement">Je me renseigne</label>
+                </span>
+              </div>
+            </fieldset>
+
+            <!-- Précisions -->
+            <div class="champ">
+              <label class="champ__label" for="precisions">Précisions</label>
+              <span class="champ__aide" id="aide-precisions">
+                Étage, accès, dimensions approximatives, contraintes de copropriété, date souhaitée…
+              </span>
+              <textarea class="champ__zone" id="precisions" name="precisions" rows="5"
+                        aria-describedby="aide-precisions"></textarea>
+            </div>
+
+            <!-- Photos -->
+            <div class="champ">
+              <label class="champ__label" for="photos">Photos des ouvertures (facultatif)</label>
+              <span class="champ__aide" id="aide-photos">
+                Une photo par ouverture suffit. Elles nous permettent souvent de chiffrer plus vite.
+              </span>
+              <input class="champ__fichier" type="file" id="photos" name="photos[]"
+                     accept="image/*" multiple aria-describedby="aide-photos">
+              <span class="champ__aide" id="liste-fichiers" role="status"></span>
+            </div>
+
+            <!-- Consentement RGPD -->
+            <div class="consentement">
+              <input class="consentement__case" type="checkbox" id="rgpd" name="rgpd" value="oui"
+                     required aria-describedby="erreur-rgpd">
+              <label class="consentement__texte" for="rgpd">
+                <span class="obligatoire" aria-hidden="true">*</span>
+                J'accepte qu'ABV Habitat utilise les informations de ce formulaire pour me
+                recontacter et établir mon devis. Ces données ne sont ni revendues ni
+                transmises à des tiers, et sont conservées 3 ans après notre dernier échange.
+                Je peux demander leur suppression à tout moment à contact@abvhabitat.fr.
+                <a href="confidentialite.html">Voir la politique de confidentialité</a>.
+              </label>
+            </div>
+            <span class="champ__erreur" id="erreur-rgpd" role="alert"></span>
+
+            <button class="bouton bouton--principal bouton--large" type="submit">
+              Envoyer ma demande
+            </button>
+
+            <p class="formulaire__note">
+              Maquette — le formulaire n'envoie pas encore de message.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <div class="conteneur">
+
+    <div class="pied__grille">
+
+      <div>
+        <p class="pied__nom">ABV Habitat</p>
+        <p class="pied__baseline">Menuiserie &amp; fermetures</p>
+        <p class="pied__mention">
+          SARL de pose de menuiseries, installée à Haguenau depuis 2020.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="pied__titre">Nous joindre</h2>
+        <ul class="pied__liste">
+          <li><a href="tel:+3338800000">03 88 XX XX XX</a></li>
+          <li><a href="mailto:contact@abvhabitat.fr">contact@abvhabitat.fr</a></li>
+          <li>[Adresse à compléter]<br>67500 Haguenau</li>
+          <li><a href="#lien-instagram-a-fournir">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="pied__titre">Horaires</h2>
+        <ul class="pied__liste">
+          <li>Lundi – vendredi : 8 h – 12 h / 13 h 30 – 18 h</li>
+          <li>Samedi : sur rendez-vous</li>
+          <li>Dimanche : fermé</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pied__bas">
+      <p class="sans-marge">© 2026 ABV Habitat</p>
+      <ul class="pied__legaux">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

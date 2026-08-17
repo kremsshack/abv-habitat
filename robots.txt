@@ -1,0 +1,7 @@
+# ABV Habitat
+# Remplacer le domaine ci-dessous par le domaine reel avant la mise en ligne.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.abvhabitat.fr/sitemap.xml

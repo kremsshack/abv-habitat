@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ABV Habitat">
+  <rect width="64" height="64" fill="#383E42"/>
+  <g fill="none" stroke="#B08D57" stroke-width="3.5" stroke-linecap="square">
+    <rect x="13.75" y="11.75" width="36.5" height="40.5"/>
+    <line x1="32" y1="12" x2="32" y2="52"/>
+    <line x1="14" y1="32" x2="50" y2="32"/>
+  </g>
+</svg>

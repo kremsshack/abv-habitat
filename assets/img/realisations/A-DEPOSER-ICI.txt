@@ -1,0 +1,30 @@
+PHOTOS DE CHANTIER
+==================
+
+Deposez ici les photos qui apparaissent dans la galerie « Realisations ».
+
+Nom du fichier
+--------------
+commune-annee-numero-index.jpg
+
+  commune : en minuscules, sans accent, tirets a la place des espaces
+  annee   : 4 chiffres
+  numero  : numero du chantier dans l'annee, sur 2 chiffres (01, 02, 03...)
+  index   : numero de la photo dans ce chantier (1, 2, 3...)
+
+Exemples
+--------
+  haguenau-2025-01-1.jpg
+  haguenau-2025-01-2.jpg
+  schweighouse-2024-04-1.jpg
+
+Format
+------
+  1200 x 900 pixels (format 4/3), en .jpg, moins de 400 Ko par photo.
+
+Important
+---------
+Deposer une photo ne suffit pas : il faut aussi declarer le chantier dans
+data/realisations.json. Voir le README a la racine du site.
+
+Ce fichier texte peut etre supprime.

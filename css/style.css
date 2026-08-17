@@ -1,0 +1,1833 @@
+/* ==========================================================================
+   ABV HABITAT — feuille de style unique
+   Organisation :
+     01. Variables
+     02. Reset et base
+     03. Typographie
+     04. Utilitaires de mise en page
+     05. Boutons
+     06. Emplacements photo (placeholders)
+     07. En-tete et navigation
+     08. Hero
+     09. Bandeau garanties
+     10. Prestations
+     11. Etapes
+     12. Realisations (apercu, galerie, filtres, lightbox)
+     13. Zone d'intervention
+     14. Temoignage
+     15. Bandeau d'appel
+     16. Pied de page
+     17. Page contact et formulaire
+     18. Pages legales
+     19. Mouvement reduit
+   Convention : une seule classe par selecteur, prefixe de section, pas d'ID.
+   ========================================================================== */
+
+/* ==========================================================================
+   01. Variables
+   ========================================================================== */
+
+:root {
+  /* Palette de reference */
+  --anthracite: #383E42;        /* RAL 7016 */
+  --anthracite-fonce: #22272A;
+  --blanc-casse: #F7F7F5;
+  --gris-clair: #E8E9E7;
+  --gris-texte: #6B7075;
+  --laiton: #B08D57;
+
+  /* Nuances derivees, ajoutees pour tenir le contraste AA.
+     Voir README, section « Couleurs et contraste ». */
+  --blanc: #FFFFFF;
+  --laiton-texte: #8A6A38;      /* laiton lisible en texte sur fond clair (4,66:1) */
+  --gris-sur-sombre: #A8ADB2;   /* texte secondaire sur fond anthracite (6,7:1) */
+  --gris-bordure-sombre: #4A5054;
+
+  /* Typographie */
+  --police-titre: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --police-texte: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Mise en page */
+  --largeur-max: 1180px;
+  --gouttiere: 1.25rem;
+  --rayon: 2px;
+  --hauteur-entete: 68px;    /* hauteur de la ligne logo + actions */
+  --decalage-ancre: 84px;    /* compense l'en-tete collant sur les ancres */
+
+  --transition: 180ms ease;
+}
+
+/* ==========================================================================
+   02. Reset et base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--blanc-casse);
+  color: var(--anthracite);
+  font-family: var(--police-texte);
+  font-size: 1.0625rem;         /* 17 px */
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--anthracite);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--laiton-texte);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Focus clavier visible partout */
+:focus-visible {
+  outline: 3px solid var(--laiton-texte);
+  outline-offset: 2px;
+}
+
+/* Navigateurs sans :focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Compense l'en-tete collant lors des ancres */
+[id] {
+  scroll-margin-top: var(--decalage-ancre);
+}
+
+/* ==========================================================================
+   03. Typographie
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 0.6em;
+  letter-spacing: 0.005em;
+}
+
+h1 {
+  font-size: clamp(2.15rem, 6vw, 3.35rem);
+}
+
+h2 {
+  font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1.1em;
+  max-width: 68ch;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.surtitre {
+  font-family: var(--police-titre);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris-texte);
+  margin: 0 0 0.75rem;
+  display: block;
+}
+
+.surtitre--sombre {
+  color: var(--gris-sur-sombre);
+}
+
+.texte-secondaire {
+  color: var(--gris-texte);
+}
+
+.texte-intro {
+  font-size: 1.1875rem;
+  max-width: 62ch;
+}
+
+code {
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+.sans-marge {
+  margin: 0;
+}
+
+.espace-haut {
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   04. Utilitaires de mise en page
+   ========================================================================== */
+
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding-inline: var(--gouttiere);
+}
+
+.section {
+  padding-block: 3.5rem;
+}
+
+.section--sombre {
+  background-color: var(--anthracite);
+  color: var(--blanc-casse);
+}
+
+.section--sombre h2,
+.section--sombre h3 {
+  color: var(--blanc-casse);
+}
+
+.section--claire {
+  background-color: var(--blanc);
+  border-block: 1px solid var(--gris-clair);
+}
+
+.section__entete {
+  margin-bottom: 2.25rem;
+}
+
+.lien-evitement {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--anthracite-fonce);
+  color: var(--blanc-casse);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--rayon);
+}
+
+.lien-evitement:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.hors-ecran {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fondu discret a l'apparition. Actif seulement si JavaScript est present. */
+.js .fondu {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.js .fondu.est-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   05. Boutons
+   ========================================================================== */
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--rayon);
+  font-family: var(--police-titre);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+              border-color var(--transition);
+}
+
+/* Bouton principal : laiton plein, texte anthracite fonce (4,88:1) */
+.bouton--principal {
+  background-color: var(--laiton);
+  border-color: var(--laiton);
+  color: var(--anthracite-fonce);
+}
+
+.bouton--principal:hover {
+  background-color: var(--anthracite-fonce);
+  border-color: var(--anthracite-fonce);
+  color: var(--laiton);
+}
+
+/* Bouton contour sur fond clair */
+.bouton--contour {
+  background-color: transparent;
+  border-color: var(--anthracite);
+  color: var(--anthracite);
+}
+
+.bouton--contour:hover {
+  background-color: var(--anthracite);
+  color: var(--blanc-casse);
+}
+
+/* Bouton contour sur fond sombre */
+.bouton--contour-clair {
+  background-color: transparent;
+  border-color: var(--blanc-casse);
+  color: var(--blanc-casse);
+}
+
+.bouton--contour-clair:hover {
+  background-color: var(--blanc-casse);
+  color: var(--anthracite-fonce);
+}
+
+.bouton--large {
+  width: 100%;
+}
+
+.groupe-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* ==========================================================================
+   06. Emplacements photo (placeholders)
+   --------------------------------------------------------------------------
+   Aucune image n'est fournie en V1. Chaque bloc respecte le ratio exact de
+   la photo attendue et affiche le nom de fichier a deposer.
+   Des qu'un fichier existe au chemin indique par data-src, main.js remplace
+   le bloc par la vraie photo.
+   ========================================================================== */
+
+.emplacement {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gris-clair);
+  border: 1px solid #D3D5D1;
+  border-radius: var(--rayon);
+  overflow: hidden;
+}
+
+.emplacement--16-9 { aspect-ratio: 16 / 9; }
+.emplacement--4-3  { aspect-ratio: 4 / 3; }
+.emplacement--1-1  { aspect-ratio: 1 / 1; }
+
+.emplacement__libelle {
+  font-family: var(--police-texte);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  /* Plus sombre que --gris-texte : sur fond gris clair, il faut 4,5:1. */
+  color: #565C61;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  max-width: 90%;
+  word-break: break-word;
+}
+
+/* Variante sombre, utilisee dans le hero */
+.emplacement--sombre {
+  background-color: var(--anthracite-fonce);
+  border-color: var(--gris-bordure-sombre);
+}
+
+.emplacement--sombre .emplacement__libelle {
+  color: var(--gris-sur-sombre);
+}
+
+/* Photo reelle inseree a la place d'un emplacement */
+.emplacement--remplie {
+  background-color: transparent;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--rayon);
+}
+
+/* ==========================================================================
+   07. En-tete et navigation
+   ========================================================================== */
+
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--blanc-casse);
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.entete__barre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  min-height: var(--hauteur-entete);
+}
+
+.entete__marque {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--anthracite);
+  line-height: 1.1;
+  padding-block: 0.5rem;
+}
+
+.entete__nom {
+  font-family: var(--police-titre);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.entete__baseline {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--gris-texte);
+  text-transform: uppercase;
+}
+
+.entete__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.entete__tel {
+  display: none;
+  font-family: var(--police-titre);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.entete__tel:hover {
+  text-decoration: underline;
+}
+
+.entete__devis {
+  display: none;
+}
+
+.entete__bascule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--anthracite);
+  border-radius: var(--rayon);
+  font-family: var(--police-titre);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.entete__bascule-barres {
+  display: block;
+  width: 20px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  position: relative;
+}
+
+.entete__bascule-barres::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 100%;
+  border-top: 2px solid currentColor;
+}
+
+/* Navigation repliee (mobile) */
+.nav {
+  display: none;
+  width: 100%;
+  border-top: 1px solid var(--gris-clair);
+  padding-block: 0.75rem 1.25rem;
+}
+
+.nav.est-ouverte {
+  display: block;
+}
+
+.nav__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__lien {
+  display: block;
+  padding: 0.875rem 0.25rem;
+  font-family: var(--police-titre);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.nav__lien[aria-current="page"] {
+  border-bottom: 2px solid var(--laiton);
+  font-weight: 700;
+}
+
+.nav__complement {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav__tel {
+  font-family: var(--police-titre);
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   08. Hero
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  background-color: var(--anthracite-fonce);
+  color: var(--blanc-casse);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  background-color: var(--anthracite-fonce);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Voile anthracite pour la lisibilite du texte */
+.hero__voile {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(34, 39, 42, 0.72);
+}
+
+.hero__contenu {
+  position: relative;
+  padding-block: 4rem 3.25rem;
+}
+
+.hero__titre {
+  color: var(--blanc-casse);
+  max-width: 17ch;
+  margin-bottom: 1rem;
+}
+
+.hero__soustitre {
+  font-size: 1.1875rem;
+  color: var(--blanc-casse);
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+.hero__note-photo {
+  position: relative;
+  display: block;
+  margin-top: 3rem;
+  font-size: 0.8125rem;
+  color: var(--gris-sur-sombre);
+  border-top: 1px solid var(--gris-bordure-sombre);
+  padding-top: 0.75rem;
+}
+
+/* ==========================================================================
+   09. Bandeau garanties
+   ========================================================================== */
+
+.garanties {
+  background-color: var(--blanc);
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.garanties__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+}
+
+.garanties__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--gris-clair);
+  font-size: 1rem;
+}
+
+.garanties__item:last-child {
+  border-bottom: 0;
+}
+
+.garanties__marque {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin-top: 0.5rem;
+  background-color: var(--laiton);
+}
+
+/* ==========================================================================
+   10. Prestations
+   ========================================================================== */
+
+.prestations__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prestation {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+  padding: 1.5rem 1.375rem 1.625rem;
+}
+
+.prestation__pictogramme {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  color: var(--anthracite);
+}
+
+.prestation__titre {
+  margin-bottom: 0.5rem;
+}
+
+.prestation__texte {
+  color: var(--gris-texte);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   11. Etapes
+   ========================================================================== */
+
+.etapes__liste {
+  list-style: none;
+  counter-reset: etape;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.etape {
+  counter-increment: etape;
+  position: relative;
+  padding: 1.5rem 0 1.5rem 3.75rem;
+  border-bottom: 1px solid var(--gris-bordure-sombre);
+}
+
+.etape:last-child {
+  border-bottom: 0;
+}
+
+.etape::before {
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--laiton);
+  border-radius: var(--rayon);
+  color: var(--laiton);
+  font-family: var(--police-titre);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.etape__titre {
+  margin-bottom: 0.35rem;
+}
+
+.etape__texte {
+  margin: 0;
+  color: var(--gris-sur-sombre);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   12. Realisations
+   ========================================================================== */
+
+.chantiers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chantier {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+  display: flex;
+  flex-direction: column;
+}
+
+.chantier__visuel {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.chantier__bouton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chantier__bouton:hover .emplacement {
+  border-color: var(--laiton);
+}
+
+.chantier__nombre {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background-color: var(--anthracite-fonce);
+  color: var(--blanc-casse);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--rayon);
+}
+
+.chantier__corps {
+  padding: 1.25rem 1.25rem 1.5rem;
+  flex: 1 1 auto;
+}
+
+.chantier__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--gris-texte);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--police-titre);
+  font-weight: 600;
+}
+
+.chantier__annee {
+  color: var(--laiton-texte);
+}
+
+.chantier__titre {
+  font-size: 1.1875rem;
+  margin-bottom: 0.4rem;
+}
+
+.chantier__description {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--gris-texte);
+}
+
+/* Filtres */
+.filtres {
+  margin-bottom: 2rem;
+}
+
+.filtres__liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filtres__bouton {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid var(--anthracite);
+  border-radius: var(--rayon);
+  font-family: var(--police-titre);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.filtres__bouton:hover {
+  background-color: var(--gris-clair);
+}
+
+.filtres__bouton[aria-pressed="true"] {
+  background-color: var(--anthracite);
+  border-color: var(--anthracite);
+  color: var(--blanc-casse);
+}
+
+.filtres__bouton[aria-pressed="true"]:hover {
+  background-color: var(--anthracite-fonce);
+}
+
+.galerie__compte {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--gris-texte);
+}
+
+.galerie__message {
+  grid-column: 1 / -1;
+  padding: 1.25rem;
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-clair);
+  border-left: 3px solid var(--laiton);
+  border-radius: var(--rayon);
+  font-size: 1rem;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  background-color: rgba(34, 39, 42, 0.96);
+  padding: 1rem;
+}
+
+.lightbox.est-ouverte {
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox__barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--gris-bordure-sombre);
+}
+
+.lightbox__position {
+  font-family: var(--police-titre);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--gris-sur-sombre);
+}
+
+.lightbox__fermer {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.875rem;
+  background: transparent;
+  border: 1px solid var(--blanc-casse);
+  border-radius: var(--rayon);
+  color: var(--blanc-casse);
+  font-family: var(--police-titre);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lightbox__fermer:hover {
+  background-color: var(--blanc-casse);
+  color: var(--anthracite-fonce);
+}
+
+.lightbox__scene {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 0;
+  padding-block: 1rem;
+}
+
+.lightbox__figure {
+  margin: 0;
+  flex: 1 1 auto;
+  max-width: 1000px;
+  min-width: 0;
+}
+
+.lightbox__figure .emplacement {
+  background-color: var(--anthracite);
+  border-color: var(--gris-bordure-sombre);
+  max-height: 60vh;
+}
+
+.lightbox__figure .emplacement__libelle {
+  color: var(--gris-sur-sombre);
+}
+
+/* En grand format, la photo est affichee entiere, jamais recadree. */
+.lightbox__figure .photo {
+  object-fit: contain;
+  max-height: 60vh;
+}
+
+.lightbox__legende {
+  margin-top: 0.875rem;
+  color: var(--blanc-casse);
+  font-size: 1rem;
+}
+
+.lightbox__legende-meta {
+  display: block;
+  color: var(--gris-sur-sombre);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox__nav {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid var(--blanc-casse);
+  border-radius: var(--rayon);
+  color: var(--blanc-casse);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__nav:hover {
+  background-color: var(--blanc-casse);
+  color: var(--anthracite-fonce);
+}
+
+.lightbox__nav[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.lightbox__nav[disabled]:hover {
+  background: transparent;
+  color: var(--blanc-casse);
+}
+
+.lightbox__aide {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--gris-sur-sombre);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--gris-bordure-sombre);
+}
+
+/* ==========================================================================
+   13. Zone d'intervention
+   ========================================================================== */
+
+.zone__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.zone__communes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1rem;
+}
+
+.zone__commune {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 1rem;
+}
+
+.zone__puce {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background-color: var(--laiton);
+}
+
+/* ==========================================================================
+   14. Temoignage
+   ========================================================================== */
+
+.temoignage {
+  max-width: 42rem;
+}
+
+.temoignage__blockquote {
+  margin: 0;
+}
+
+.temoignage__citation {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--laiton);
+  font-family: var(--police-titre);
+  font-size: clamp(1.375rem, 3.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.temoignage__source {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--police-texte);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--gris-texte);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   15. Bandeau d'appel
+   ========================================================================== */
+
+.appel {
+  background-color: var(--anthracite-fonce);
+  color: var(--blanc-casse);
+  padding-block: 3rem;
+}
+
+.appel__grille {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.appel__titre {
+  color: var(--blanc-casse);
+  margin: 0;
+}
+
+.appel__texte {
+  color: var(--gris-sur-sombre);
+  margin: 0.5rem 0 0;
+}
+
+/* ==========================================================================
+   16. Pied de page
+   ========================================================================== */
+
+.pied {
+  background-color: var(--anthracite);
+  color: var(--blanc-casse);
+  padding-block: 3rem 2rem;
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.pied__titre {
+  font-family: var(--police-titre);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris-sur-sombre);
+  margin: 0 0 0.875rem;
+}
+
+.pied__nom {
+  font-family: var(--police-titre);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.25rem;
+  color: var(--blanc-casse);
+}
+
+.pied__baseline {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris-sur-sombre);
+  margin: 0 0 1rem;
+}
+
+.pied__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.pied__mention {
+  margin: 0;
+  color: var(--gris-sur-sombre);
+  font-size: 1rem;
+}
+
+.pied a {
+  color: var(--blanc-casse);
+}
+
+.pied a:hover {
+  color: var(--laiton);
+}
+
+.pied__bas {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--gris-bordure-sombre);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--gris-sur-sombre);
+}
+
+.pied__legaux {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+/* ==========================================================================
+   17. Page contact et formulaire
+   ========================================================================== */
+
+.contact__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.coordonnees__bloc {
+  margin-bottom: 1.75rem;
+}
+
+.coordonnees__bloc:last-child {
+  margin-bottom: 0;
+}
+
+.coordonnees__valeur {
+  font-family: var(--police-titre);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.coordonnees__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.coordonnees__liste li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--gris-clair);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 24rem;
+}
+
+.coordonnees__liste li:last-child {
+  border-bottom: 0;
+}
+
+/* Formulaire */
+.formulaire {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+  padding: 1.5rem 1.25rem 1.75rem;
+}
+
+.champ {
+  margin-bottom: 1.375rem;
+}
+
+/* Deux champs sur une meme ligne (commune + code postal) */
+.champ-duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1rem;
+}
+
+.champ__label {
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.375rem;
+}
+
+.champ__aide {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gris-texte);
+  margin-bottom: 0.5rem;
+}
+
+.champ__saisie,
+.champ__zone,
+.champ__fichier {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.875rem;
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-texte);
+  border-radius: var(--rayon);
+  font-family: var(--police-texte);
+  font-size: 1.0625rem;
+  color: var(--anthracite);
+}
+
+.champ__zone {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.champ__saisie:focus,
+.champ__zone:focus {
+  border-color: var(--anthracite);
+}
+
+.champ__saisie[aria-invalid="true"],
+.champ__zone[aria-invalid="true"] {
+  border-color: #A32E2E;
+  border-width: 2px;
+}
+
+.champ__erreur {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.9375rem;
+  color: #8E2626;
+  font-weight: 500;
+}
+
+.champ__erreur:empty {
+  display: none;
+}
+
+.obligatoire {
+  color: #8E2626;
+  font-weight: 500;
+}
+
+/* Groupes radio et cases a cocher */
+.groupe {
+  border: 0;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.groupe__legende {
+  padding: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.groupe__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.groupe__options--colonne {
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+/* Puce cliquable : l'input reste dans le DOM pour le clavier et l'accessibilite */
+.puce {
+  position: relative;
+  display: inline-flex;
+}
+
+.puce__input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.puce__label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--gris-texte);
+  border-radius: var(--rayon);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.puce__input:hover + .puce__label {
+  border-color: var(--anthracite);
+  background-color: var(--gris-clair);
+}
+
+.puce__input:checked + .puce__label {
+  background-color: var(--anthracite);
+  border-color: var(--anthracite);
+  color: var(--blanc-casse);
+}
+
+.puce__input:focus-visible + .puce__label {
+  outline: 3px solid var(--laiton-texte);
+  outline-offset: 2px;
+}
+
+/* Case a cocher classique (RGPD) */
+.consentement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--blanc-casse);
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+  margin-bottom: 1.25rem;
+}
+
+.consentement__case {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0.15rem 0 0;
+  accent-color: var(--anthracite);
+}
+
+.consentement__texte {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.formulaire__note {
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  color: var(--gris-texte);
+  text-align: center;
+}
+
+.formulaire__resume-erreurs {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  background-color: #FBF0F0;
+  border: 1px solid #A32E2E;
+  border-radius: var(--rayon);
+}
+
+.formulaire__resume-erreurs h2 {
+  font-size: 1.1875rem;
+  margin-bottom: 0.5rem;
+  color: #8E2626;
+}
+
+.formulaire__resume-erreurs ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+}
+
+.formulaire__resume-erreurs:empty {
+  display: none;
+}
+
+/* Etat de confirmation */
+.confirmation {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-clair);
+  border-left: 3px solid var(--laiton);
+  border-radius: var(--rayon);
+  padding: 2rem 1.5rem;
+}
+
+.confirmation__titre {
+  margin-bottom: 0.75rem;
+}
+
+.confirmation__recap {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background-color: var(--blanc-casse);
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+  font-size: 1rem;
+}
+
+.confirmation__recap dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+}
+
+.confirmation__recap dt {
+  font-weight: 500;
+  color: var(--gris-texte);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.confirmation__recap dd {
+  margin: 0 0 0.5rem;
+}
+
+/* ==========================================================================
+   18. Pages legales et interieures
+   ========================================================================== */
+
+.page-titre {
+  background-color: var(--anthracite);
+  color: var(--blanc-casse);
+  padding-block: 2.75rem;
+}
+
+.page-titre h1 {
+  color: var(--blanc-casse);
+  margin-bottom: 0.5rem;
+}
+
+.page-titre p {
+  color: var(--gris-sur-sombre);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.contenu-legal {
+  max-width: 44rem;
+}
+
+.contenu-legal h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.contenu-legal h2:first-of-type {
+  margin-top: 0;
+}
+
+.contenu-legal h3 {
+  font-size: 1.1875rem;
+  margin-top: 1.75rem;
+}
+
+.contenu-legal ul,
+.contenu-legal ol {
+  padding-left: 1.25rem;
+  max-width: 68ch;
+}
+
+.contenu-legal li {
+  margin-bottom: 0.5rem;
+}
+
+/* Les tableaux peuvent depasser sur un petit ecran : on les rend
+   defilables horizontalement, et atteignables au clavier. */
+.table-defilante {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  border: 1px solid var(--gris-clair);
+  border-radius: var(--rayon);
+}
+
+.contenu-legal table {
+  width: 100%;
+  min-width: 22rem;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contenu-legal .table-defilante table {
+  border: 0;
+}
+
+.contenu-legal th,
+.contenu-legal td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--gris-clair);
+}
+
+.contenu-legal th {
+  background-color: var(--gris-clair);
+  font-weight: 500;
+}
+
+.a-completer {
+  display: inline;
+  padding: 0.05rem 0.4rem;
+  background-color: var(--gris-clair);
+  border: 1px dashed var(--gris-texte);
+  border-radius: var(--rayon);
+  font-size: 0.9375rem;
+  color: var(--anthracite);
+  overflow-wrap: anywhere;
+}
+
+/* Note destinee a l'editeur du site, pas au visiteur.
+   A supprimer une fois l'arbitrage rendu. */
+.note-editeur {
+  padding: 0.875rem 1rem;
+  background-color: var(--gris-clair);
+  border: 1px dashed var(--gris-texte);
+  border-radius: var(--rayon);
+  font-size: 0.9375rem;
+  max-width: none;
+}
+
+.fil-ariane {
+  padding-block: 1rem;
+  font-size: 0.875rem;
+  color: var(--gris-texte);
+}
+
+.fil-ariane ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fil-ariane li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: var(--gris-texte);
+}
+
+/* ==========================================================================
+   19. Points de rupture
+   ========================================================================== */
+
+@media (min-width: 480px) {
+  .bouton--large {
+    width: auto;
+  }
+
+  .champ-duo {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (min-width: 640px) {
+  .garanties__liste {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .prestations__grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chantiers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .zone__communes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .appel__grille {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .confirmation__recap dl {
+    grid-template-columns: 12rem 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .confirmation__recap dd {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gouttiere: 2rem;
+    --hauteur-entete: 60px;
+    --decalage-ancre: 132px;
+  }
+
+  .section {
+    padding-block: 5rem;
+  }
+
+  .entete__tel,
+  .entete__devis {
+    display: inline-flex;
+  }
+
+  .entete__bascule {
+    display: none;
+  }
+
+  /* La navigation occupe une deuxieme ligne complete, sous le logo et les
+     coordonnees. Cela evite tout debordement entre le logo, le telephone et
+     le bouton de devis, quelle que soit la largeur d'ecran. */
+  .nav {
+    display: block;
+    width: 100%;
+    padding-block: 0;
+  }
+
+  .nav__liste {
+    flex-direction: row;
+    gap: 1.75rem;
+  }
+
+  .nav__lien {
+    padding: 0.625rem 0;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+  }
+
+  .nav__lien:hover {
+    border-bottom-color: var(--gris-texte);
+  }
+
+  .nav__lien[aria-current="page"] {
+    border-bottom: 3px solid var(--laiton);
+  }
+
+  .nav__complement {
+    display: none;
+  }
+
+  .hero__contenu {
+    padding-block: 6.5rem 5rem;
+  }
+
+  .garanties__liste {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1.75rem;
+  }
+
+  .garanties__item {
+    border-bottom: 0;
+    padding-block: 1.75rem;
+  }
+
+  .etapes__liste {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
+
+  .etape {
+    border-bottom: 0;
+    border-top: 1px solid var(--gris-bordure-sombre);
+    padding-top: 1.75rem;
+  }
+
+  .zone__grille {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact__grille {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .formulaire {
+    padding: 2rem 2rem 2.25rem;
+  }
+
+  .pied__grille {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+
+  .pied__bas {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lightbox {
+    padding: 1.5rem 2rem;
+  }
+
+  .lightbox__scene {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prestations__grille {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chantiers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .etapes__liste {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .zone__communes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero__contenu {
+    padding-block: 8rem 6rem;
+  }
+}
+
+/* Volontairement, la navigation garde sa propre ligne meme sur grand ecran.
+   La faire remonter au milieu de la premiere ligne obligerait a reordonner
+   les blocs en CSS : l'ordre de tabulation ne suivrait plus l'ordre visuel. */
+
+/* ==========================================================================
+   20. Mouvement reduit
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .fondu {
+    opacity: 1;
+    transform: none;
+  }
+}

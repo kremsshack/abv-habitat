@@ -1,0 +1,49 @@
+# ABV Habitat — reglages Apache pour hebergement mutualise
+# Ce fichier est pris en compte automatiquement par la plupart des mutualises
+# (OVH, o2switch, Ionos...). Si l'hebergeur utilise un autre serveur que
+# Apache, reporter ces en-tetes dans son panneau de configuration.
+
+# --- Pas de listage des dossiers -------------------------------------------
+Options -Indexes
+
+# --- Encodage --------------------------------------------------------------
+AddDefaultCharset UTF-8
+
+# --- En-tetes de securite --------------------------------------------------
+<IfModule mod_headers.c>
+  # Le site ne doit jamais etre affiche dans une iframe d'un autre domaine
+  # (protection contre le clickjacking).
+  Header always set X-Frame-Options "DENY"
+
+  # Le navigateur ne doit pas deviner le type d'un fichier.
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Ne pas transmettre l'URL complete aux sites externes visites.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Le site n'utilise ni camera, ni micro, ni geolocalisation.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Politique de securite du contenu : tout vient du site lui-meme,
+  # sauf les polices Google. Si les polices sont rapatriees sur le serveur
+  # (voir README, section 7), remplacer par :
+  #   default-src 'self'; img-src 'self' data:; style-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
+</IfModule>
+
+# --- Compression -----------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Mise en cache ---------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  # Le JSON des realisations change a chaque nouveau chantier : cache court.
+  ExpiresByType application/json "access plus 1 hour"
+</IfModule>

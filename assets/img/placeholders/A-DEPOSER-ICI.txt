@@ -1,0 +1,15 @@
+VISUELS TEMPORAIRES
+===================
+
+Ce dossier est vide et le reste en V1 : la maquette n'utilise aucune image.
+Les emplacements photo sont dessines directement en CSS (bloc gris avec le nom
+du fichier attendu).
+
+Il sert de reserve pour des visuels provisoires eventuels, le temps que les
+vraies photos soient disponibles.
+
+Les photos definitives ne vont PAS ici :
+  - photos de chantier  -> assets/img/realisations/
+  - photo du bandeau, carte, logo -> assets/img/
+
+Ce fichier texte peut etre supprime.
