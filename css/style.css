@@ -193,6 +193,17 @@ code {
   margin: 0;
 }
 
+/* Libelle inerte : l'URL correspondante n'a pas encore ete fournie.
+   Un commentaire HTML accompagne chaque occurrence avec le lien a remettre. */
+.lien-a-venir {
+  color: var(--gris-texte);
+  cursor: default;
+}
+
+.pied .lien-a-venir {
+  color: var(--gris-sur-sombre);
+}
+
 .espace-haut {
   margin-top: 2rem;
 }
